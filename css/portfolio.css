@@ -119,7 +119,7 @@ header.sticky.nav-bar{
     font-weight: 500;
 }
 
-.nav-items a.active{
+.nav-items :active{
     color: var(--third-color);
 }
 
@@ -130,7 +130,9 @@ header.sticky.nav-bar{
 .nav-items a:hover{
     color: var(--second-color);
 }
-
+.nav-item a:focus{
+    color: var(--second-color)
+}
 .home{
     position: relative;
     max-width: 1205px;

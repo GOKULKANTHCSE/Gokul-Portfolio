@@ -1,4 +1,7 @@
 // about Education
+const  toggle=function(elem){
+  elem.classList.toggle('active');
+}
 
 var tablinks = document.getElementsByClassName("tab-links");
 var tabcontents = document.getElementsByClassName("tab-contents");
