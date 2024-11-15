@@ -382,20 +382,27 @@
                 </div>
                 <div class="contact-right">
                     <p>I'm always open to discussing product <br><span>design works or development works.</span></p>
-                    <form action="mailto:gokulkanthgk@gmail.com" method="post" enctype="text/plain" class="contact-form">
+                    <form action="https://api.web3forms.com/submit" method="POST" class="contact-form" id="contactForm">
+                        <!-- Replace with your Access Key -->
+                        <input type="hidden" name="access_key" value="bd3fb6c9-ad00-4b17-9269-40410cbdd070">
                         <div class="first-row">
-                            <input type="text" placeholder="Name">
+                            <input type="text" name="name" placeholder="Name" required>
                         </div>
                         <div class="second-row">
-                            <input type="email" name="" id="" placeholder="Email">
-                            <input type="text" placeholder="Subject">
+                            <input type="email" name="email" placeholder="Email" required>
+                            <input type="text" name="subject" placeholder="Subject">
                         </div>
                         <div class="third-row">
-                            <textarea name="message" id="" rows="7" placeholder="Message"></textarea>
+                            <textarea name="message" rows="7" placeholder="Message"></textarea>
                         </div>
                         <button class="btn" type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
                     </form>
+                    <!-- Popup Message -->
+                    <div id="successPopup">
+                        <p>Thank you! Your message has been sent successfully. 😊</p>
+                    </div>
                 </div>
+                
             </div>
         </div>
     </section>

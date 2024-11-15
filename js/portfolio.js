@@ -135,3 +135,76 @@ ScrollReveal().reveal('.about .tab-titles,.tab-contents', {delay:500, origin:'ri
 ScrollReveal().reveal('.skills-description, .skills-info,.contact-card ,.contact-left h2', {delay:700, origin:'left', interval:200});
 ScrollReveal().reveal('.portfolio .img-card', {delay:800, origin:'bottom',interval:200});
 ScrollReveal().reveal('footer .group', {delay:500, origin:'top',interval:200});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contactForm");
+  const successMessage = document.getElementById("successMessage");
+
+  form.addEventListener("submit", async (e) => {
+      e.preventDefault(); // Prevent the default form submission
+
+      // Show loading animation
+      const button = form.querySelector("button");
+      button.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
+      button.disabled = true;
+
+      try {
+          // Send form data using fetch API
+          const formData = new FormData(form);
+          const response = await fetch(form.action, {
+              method: form.method,
+              body: formData,
+          });
+
+          if (response.ok) {
+              // Hide form and show success message
+              form.style.display = "none";
+              successMessage.classList.remove("hidden");
+          } else {
+              alert("Something went wrong. Please try again later.");
+          }
+      } catch (error) {
+          console.error("Error:", error);
+          alert("Failed to send message. Please check your connection.");
+      } finally {
+          // Reset button
+          button.innerHTML = 'Send Message <i class="fas fa-paper-plane"></i>';
+          button.disabled = false;
+      }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contactForm");
+  const successPopup = document.getElementById("successPopup");
+
+  form.addEventListener("submit", async (e) => {
+      e.preventDefault(); // Prevent default form submission
+
+      // Show loading state on the button
+      const button = form.querySelector("button");
+      button.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
+      button.disabled = true;
+
+      try {
+          // Simulate form submission with a delay (e.g., sending data to server)
+          await new Promise((resolve) => setTimeout(resolve, 2000)); // Mock server delay
+
+          // Display popup
+          successPopup.style.display = "block";
+
+          // Auto-hide popup after 3 seconds
+          setTimeout(() => {
+              successPopup.style.display = "none";
+          }, 3000);
+      } catch (error) {
+          console.error("Error:", error);
+          alert("Failed to send message. Please try again.");
+      } finally {
+          // Reset button
+          button.innerHTML = 'Send Message <i class="fas fa-paper-plane"></i>';
+          button.disabled = false;
+      }
+  });
+});

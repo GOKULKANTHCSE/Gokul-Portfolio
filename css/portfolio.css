@@ -1043,4 +1043,65 @@ footer a{
     .contact-card .contact-btn .btn{
         font-size: 0.8rem;
     }
+    /* General styling for the confirmation box */
+#successMessage {
+    display: none; /* Initially hidden */
+    margin-top: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    background-color: #e6f9e6; /* Light green background */
+    border: 1px solid #4caf50; /* Green border */
+    color: #155724; /* Dark green text for success */
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Keyframe animation for fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px); /* Slide in from above */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Popup styling */
+#successPopup {
+    display: none; /* Hidden initially */
+    position: fixed; /* Position relative to the viewport */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%) scale(0.5); /* Scale down initially */
+    z-index: 9999; /* Ensure it's above other elements */
+    padding: 20px 30px;
+    background-color: #d4edda; /* Light green background */
+    border: 2px solid #28a745; /* Dark green border */
+    color: #155724; /* Dark green text */
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Strong shadow for popup */
+    text-align: center;
+    animation: popUp 0.4s ease forwards; /* Popup animation */
+}
+
+/* Pop-up animation */
+@keyframes popUp {
+    from {
+        opacity: 0; /* Invisible */
+        transform: translate(-50%, -50%) scale(0.5); /* Start smaller */
+    }
+    to {
+        opacity: 1; /* Fully visible */
+        transform: translate(-50%, -50%) scale(1); /* Full size */
+    }
+}
+
+
 }
